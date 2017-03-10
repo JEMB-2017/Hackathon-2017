@@ -16,6 +16,7 @@
 
 ##General
 [Text Recognition](https://developers.google.com/vision/text-overview)
+[Material Design Guidelines](https://material.io/guidelines/)
 
 ##Android
 [Geofence Reference](https://developer.android.com/training/location/geofencing.html)
