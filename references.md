@@ -15,8 +15,7 @@
 `git show [commit]` - Displays a difference report of the differences between the specified commit and the previous commit. Specify the commit by using 5 or more characters of the commit hash.  
 
 ##General
-[Text Recognition](https://developers.google.com/vision/text-overview)
-
+[Text Recognition](https://developers.google.com/vision/text-overview)  
 [Material Design Guidelines](https://material.io/guidelines/)
 
 ##Android
