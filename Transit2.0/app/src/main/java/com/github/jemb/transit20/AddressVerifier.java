@@ -13,9 +13,9 @@ public class AddressVerifier {
     // returns true if the address is valid otherwise returns false
     boolean isValidAddress(String address)
     {
-        if()
+        if(true)
         {
-
+            return true;
         }
         return false;
     }
