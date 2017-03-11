@@ -1,5 +1,6 @@
 package com.github.jemb.transit20;
-import  com.google.android.gms.maps.*;
+import com.google.*;
+
 
 /**
  * Created by willj on 3/10/2017.
