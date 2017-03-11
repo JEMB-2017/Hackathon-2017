@@ -6,8 +6,10 @@
     android:layout_height="match_parent"
     tools:context="com.github.jemb.transit20.MapActivity">
 
-    <com.google.android.gms.maps.MapView
-        android:id="@+id/mapView"
+
+    <fragment
+        android:id="@+id/mainMap"
+        android:name="com.google.android.gms.maps.MapFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1" />
