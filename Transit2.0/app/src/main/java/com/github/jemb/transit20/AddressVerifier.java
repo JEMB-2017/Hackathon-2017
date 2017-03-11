@@ -21,9 +21,12 @@ public class AddressVerifier {
 		geo = new Geocoder(context);
 	}
 
+	//TODO: Replace Geocoder API with Places API
+
 	public List<Address> getAddresses(String locationName) {
 		try {
-			return geo.getFromLocationName(locationName, 10);
+//			return geo.getFromLocationName(locationName, 10);
+			return geo.getFromLocationName(locationName, 100, 21.253766, -158.300492, 21.740495, -157.620317);
 		} catch (IOException e) {
 			e.printStackTrace();
 			return new ArrayList<>();
@@ -34,7 +37,8 @@ public class AddressVerifier {
 	public boolean isValidAddress(String address) {
 		if (Geocoder.isPresent()) {
 			try {
-				List<Address> addressList = geo.getFromLocationName(address, 1);
+//				List<Address> addressList = geo.getFromLocationName(address, 1);
+				List<Address> addressList = geo.getFromLocationName(address, 1, 21.253766, -158.300492, 21.740495, -157.620317);
 				if (!addressList.isEmpty()) {
 					return true;
 				}
