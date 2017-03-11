@@ -45,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
 			Log.i("Address", "[" + i + "] " + addressList.get(i).getAddressLine(2));
 			Log.i("Address", "[" + i + "] " + addressList.get(i).getAddressLine(3));
 			Log.i("Address", "[" + i + "] " + addressList.get(i).getFeatureName());
+			setContentView(R.layout.activity_map);
 		}
 
 	}
@@ -57,7 +58,8 @@ public class MainActivity extends AppCompatActivity {
 			Toast myToast = Toast.makeText(this,"Google play services are not installed on this device",duration);
 			myToast.show();
 			return false;
-		}
+
+        }
 		return true;
 	}
 }
