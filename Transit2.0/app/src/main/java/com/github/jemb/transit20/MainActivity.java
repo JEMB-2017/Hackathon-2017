@@ -1,5 +1,6 @@
 package com.github.jemb.transit20;
 
+import android.content.Intent;
 import android.location.Address;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -17,15 +18,22 @@ public class MainActivity extends AppCompatActivity {
 
 	AddressVerifier addressVerifier;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+
+		if (googleServicesAvailable()) {
+			setContentView(R.layout.activity_main);
+		} else {
+			int duration = Toast.LENGTH_LONG;
+			Toast myToast = Toast.makeText(this, "Google Play services are not installed on this device!", duration);
+			myToast.show();
+			setContentView(R.layout.activity_unsupported);
+		}
 
 		addressVerifier = new AddressVerifier(this);
 
 		Log.i("AddressVerifier", addressVerifier.isValidAddress("123 lane") + "");
-		googleServicesAvailable();
 
 //		ArrayList<Address> addressList = (ArrayList<Address>) addressVerifier.getAddresses("Bishop Museum");
 //		for (int i = 0; i < addressList.size(); i++) {
@@ -47,17 +55,18 @@ public class MainActivity extends AppCompatActivity {
 			Log.i("Address", "[" + i + "] " + addressList.get(i).getFeatureName());
 		}
 
+		Intent intent = new Intent(this, MapActivity.class);
+		startActivity(intent);
+//		setContentView(R.layout.activity_map);
 	}
-	public boolean googleServicesAvailable(){
+
+	public boolean googleServicesAvailable() {
 		GoogleApiAvailability api = GoogleApiAvailability.getInstance();
 		int isAvailable = api.isGooglePlayServicesAvailable(this);
-		if(isAvailable != ConnectionResult.SUCCESS)
-		{
-			int duration = Toast.LENGTH_SHORT;
-			Toast myToast = Toast.makeText(this,"Google play services are not installed on this device",duration);
-			myToast.show();
+		if (isAvailable != ConnectionResult.SUCCESS) {
 			return false;
 		}
 		return true;
 	}
+
 }
