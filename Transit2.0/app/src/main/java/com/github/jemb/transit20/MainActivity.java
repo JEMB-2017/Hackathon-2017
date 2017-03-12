@@ -1,5 +1,6 @@
 package com.github.jemb.transit20;
 
+import android.content.Intent;
 import android.location.Address;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -25,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
 			setContentView(R.layout.activity_main);
 		} else {
 			int duration = Toast.LENGTH_LONG;
-			Toast myToast = Toast.makeText(this, "Google play services are not installed on this device!", duration);
+			Toast myToast = Toast.makeText(this, "Google Play services are not installed on this device!", duration);
 			myToast.show();
 			setContentView(R.layout.activity_unsupported);
 		}
@@ -52,9 +53,11 @@ public class MainActivity extends AppCompatActivity {
 			Log.i("Address", "[" + i + "] " + addressList.get(i).getAddressLine(2));
 			Log.i("Address", "[" + i + "] " + addressList.get(i).getAddressLine(3));
 			Log.i("Address", "[" + i + "] " + addressList.get(i).getFeatureName());
-			setContentView(R.layout.activity_map);
 		}
 
+		Intent intent = new Intent(this, MapActivity.class);
+		startActivity(intent);
+//		setContentView(R.layout.activity_map);
 	}
 
 	public boolean googleServicesAvailable() {
