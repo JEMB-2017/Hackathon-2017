@@ -40,7 +40,9 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".MapActivity"></activity>
+        <activity
+            android:name=".MapActivity"
+            android:parentActivityName=".MainActivity"></activity>
         <activity android:name=".UnsupportedActivity"></activity>
     </application>
 
